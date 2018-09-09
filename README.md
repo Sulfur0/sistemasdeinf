@@ -1,2 +1,2 @@
 # sistemasdeinf
-proyecto final para sistemas de informacion
+Proyecto final para la materia Sistemas de Información
