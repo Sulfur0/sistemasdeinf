@@ -6,7 +6,7 @@ Description: Layout para el panel de control de aplicación administrativa.
 <html lang="en">
 
 <head>
-    <title>Sistema Administrativo</title>
+    <title>Sistema de Oficina de Trabajo</title>
     <!-- Meta Tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
@@ -57,6 +57,7 @@ Description: Layout para el panel de control de aplicación administrativa.
         <!-- Page Content Holder -->
         <div id="content">
             <!-- top-bar -->
+            <!--
             <nav class="navbar navbar-default mb-xl-5 mb-4">
                 <div class="container-fluid">
 
@@ -67,14 +68,16 @@ Description: Layout para el panel de control de aplicación administrativa.
                     </div>
                     
                     <ul class="top-icons-agileits-w3layouts float-right">
+                        
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false">
                                 <i class="far fa-bell"></i>
-                                <!--
+                                
                                 <span class="badge">4</span>
-                                -->
+                                
                             </a>
+                            
                             <div class="dropdown-menu top-grid-scroll drop-1">
                                 <h3 class="sub-title-w3-agileits">Notificaciones del usuario</h3>
                                 <a href="#" class="dropdown-item mt-3">    
@@ -87,7 +90,9 @@ Description: Layout para el panel de control de aplicación administrativa.
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">ver todas las notificaciones</a>
                             </div>
+                        
                         </li>
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false">
@@ -104,6 +109,9 @@ Description: Layout para el panel de control de aplicación administrativa.
                             </div>
                         </li>
                     </ul>
+                    
+                   
                 </div>
             </nav>
+            -->
             <!--// top-bar -->

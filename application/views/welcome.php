@@ -1,6 +1,7 @@
 <!-- main-heading -->
-<h3 class="main-title-w3layouts mb-2 text-center">Bienvenido al Sistema Administrativo</h3>
+<h3 class="main-title-w3layouts mb-2 text-center">Bienvenido al Sistema de Oficina de Trabajo de la Facultad</h3>
 <!--// main-heading -->
+<p class="main-title-w3layouts mb-2 text-center">Por favor, seleccione un item del menú para continuar.</p>
 <?php if (isset($response)) { ?>
 	<div class="col-md-6 offset-md-3 space-bot-md">
 		<div class="alert alert-success">

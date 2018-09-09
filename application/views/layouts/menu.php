@@ -11,15 +11,15 @@
                 <li>
                     <a href="#usuariosSubmenu" data-toggle="collapse" aria-expanded="false">
                         <i class="fas fa-users"></i>
-                        Usuarios
+                        Estudiantes
                         <i class="fas fa-angle-down fa-pull-right"></i>
                     </a>
                     <ul class="collapse list-unstyled" id="usuariosSubmenu">
                         <li>
-                            <a href="<?php echo base_url(); ?>index.php/Persona/create">Agregar Nuevo</a>
+                            <a href="<?php echo base_url(); ?>index.php/Estudiantes/create">Agregar Nuevo</a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url(); ?>index.php/Persona/list">Lista de Usuarios</a>
+                            <a href="<?php echo base_url(); ?>index.php/Estudiantes/view">Lista de Estudiantes</a>
                         </li>
                     </ul>
                 </li>                                             
