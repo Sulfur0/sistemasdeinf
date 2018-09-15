@@ -1,5 +1,5 @@
 <!-- main-heading -->
-<h3 class="main-title-w3layouts mb-2 text-center">Formulario de Registro de Oferta</h3>
+<h3 class="main-title-w3layouts mb-2 text-center">Formulario de Registro de Oferta de Empresa</h3>
 <!--// main-heading -->
 <?php if (isset($response)) { ?>
 	<div class="col-md-6 offset-md-3 space-bot-md">
@@ -19,10 +19,16 @@
 	    <div class="form-group">
 	    	<div class="row">
 	    		<div class="col-md-12">
-	    			<label>Nombre de la facultad</label>
-	        		<input type="text" class="form-control" placeholder="Ingresa Nombre de la facultad" name="fac_nombre" value="">
+	    			<label>Oferta registrada por</label>
+	        		<input type="text" class="form-control" placeholder="Ingresa Nombre de la empresa" name="ofer_destino" value="" readonly="">
 	    		</div>	    		
-	    	</div>	        
+	    	</div>	
+	    	<div class="row">
+	    		<div class="col-md-12">
+	    			<label>Descripción</label>
+	        		<input type="text" class="form-control" placeholder="Breve descripción de la oferta" name="ofer_descripcion" value="">
+	    		</div>	    		
+	    	</div>        
 	    </div>    
 
 	    <button type="submit" class="btn btn-success mt-sm-5 mt-3 px-4">Registrar</button>

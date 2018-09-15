@@ -25,7 +25,7 @@ class MFacultad extends CI_Model
 	        return $query->result_array();
 	    }
 		$query = $this->db->get_where('facultad', array('facultad.fac_id' => $fac_id));
-	    return $query->row_array();
+		return $query->row_array();
 	}
 
 	public function update($fac_id) 

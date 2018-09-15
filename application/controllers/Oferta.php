@@ -1,14 +1,16 @@
 <?php
 /**
- * Controlador de Facultad.
+ * Controlador de Oferta.
  */
-class Facultad extends CI_Controller
+class Oferta extends CI_Controller
 {
 	
 	function __construct()
 	{
 		parent::__construct();
+		//$this->load->model('MOferta');
 		$this->load->model('MFacultad');
+		$this->load->model('MDepartamento');
 		$this->load->helper('url');
 	}
 	/*
@@ -22,13 +24,21 @@ class Facultad extends CI_Controller
 		$this->load->view('layouts/bottom');
 	}
 	/*
-	* Método create, para mostrar formulario de registro de facultad
-	*
+	* Método create, para mostrar formulario de registro de oferta
+	* @param destino: el id del destino en concreto, tipo: puede ser facultad o empresa
 	*/
-	public function create(){
+	public function create($destino,$tipo){
 		$this->load->view('layouts/top');
-		$this->load->view('facultad/create');
+		if($tipo == "facultad")
+		{
+			$data['facultad'] = $this->MFacultad->get_facultades($destino);			
+			$data['departamentos'] = $this->MDepartamento->get_departamentos($destino);	
+			$this->load->view('oferta/create_facultad',$data);
+		}							
+		else	
+			$this->load->view('oferta/create_empresa');		
 		$this->load->view('layouts/bottom');
+		
 	}
 	/*
 	* Método store, para guardar los datos de la facultad
@@ -43,11 +53,10 @@ class Facultad extends CI_Controller
 		$query = $this->db->get_where('facultad', array('fac_nombre' => $this->input->post("fac_nombre")));
 		if(empty($query->row()))
 		{
-			$this->MFacultad->guardar($paramFacultad);	
-			$data['facultades'] = $this->MFacultad->get_facultades();	
+			$this->MFacultad->guardar($paramFacultad);		
 			$data['response'] = 'La facultad ha sido registrada satisfactoriamente';
 			$this->load->view('layouts/top');
-	       	$this->load->view('facultad/index',$data);
+	       	$this->load->view('facultad/create', $data);
 	       	$this->load->view('layouts/bottom');	
 		}
 		else
