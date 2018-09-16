@@ -33,7 +33,7 @@ Description: Layout para el panel de control de aplicación administrativa.
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/panel/pignose.calender.css" />
     <!--// Calender Css -->
     <!-- Common Css -->
-    <link href="<?php echo base_url(); ?>css/panel/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="<?php echo base_url(); ?>css/panel/style.css?1" rel="stylesheet" type="text/css" media="all" />
     <!--// Common Css -->
     <!-- Nav Css -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>css/panel/style4.css">

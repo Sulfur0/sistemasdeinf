@@ -19,8 +19,13 @@
 	    <div class="form-group">
 	    	<div class="row">
 	    		<div class="col-md-12">
-	    			<label>Facultad a la cual pertenece esta oficina</label>
-	        		<input type="text" class="form-control" placeholder="Ingresa Nombre de Facultad" name="fac_nombre" value="">
+	    			<label>Seleccione la facultad a la cual pertenece esta oficina de trabajo</label>
+	    			<select name="fac_nombre" id="fac_nombre" class="form-control" required="">
+	        			<option disabled selected value>Selecciona una facultad</option>
+	        			<?php foreach ($facultades as $facultad ) { ?>
+	        			<option value="<?php echo $facultad['fac_nombre']; ?>"><?php echo $facultad['fac_nombre']; ?></option>	
+	        			<?php } ?>
+	        		</select>
 	    		</div>
 	    	</div>	        
 	    </div>	    

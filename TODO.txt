@@ -1,2 +1,8 @@
-* Pagina para crear departamento para la facultad seleccionada y luego mostrarlo correctamente en la pagina de los departamentos de la facultad seleccionada
-* Registrar Oferta
+* estudiantes_inscritos compuesto por estudiantes
+* llamado dirigido a estudiantes_inscritos
+* Oficina abre llamado
+* Estudiante debe estar registrado en oficina
+
+* Arreglar el muestreo y edición del curriculum de los estudiantes y los telefonos
+* Edición de estudiante
+

@@ -11,6 +11,8 @@ class Oferta extends CI_Controller
 		//$this->load->model('MOferta');
 		$this->load->model('MFacultad');
 		$this->load->model('MDepartamento');
+		$this->load->model('MOferta');
+		$this->load->model('MEmpresa');
 		$this->load->helper('url');
 	}
 	/*
@@ -18,9 +20,9 @@ class Oferta extends CI_Controller
 	*
 	*/
 	public function index(){
-		$data['facultades'] = $this->MFacultad->get_facultades();	
+		$data['ofertas'] = $this->MOferta->get_ofertas();
 		$this->load->view('layouts/top');
-		$this->load->view('facultad/index',$data);
+		$this->load->view('oferta/index',$data);
 		$this->load->view('layouts/bottom');
 	}
 	/*
@@ -35,97 +37,83 @@ class Oferta extends CI_Controller
 			$data['departamentos'] = $this->MDepartamento->get_departamentos($destino);	
 			$this->load->view('oferta/create_facultad',$data);
 		}							
-		else	
-			$this->load->view('oferta/create_empresa');		
+		else
+		{
+			$data['empresa'] = $this->MEmpresa->get_empresas($destino);
+			$this->load->view('oferta/create_empresa',$data);		
+		}
 		$this->load->view('layouts/bottom');
 		
 	}
 	/*
-	* Método store, para guardar los datos de la facultad
+	* Método store, para guardar los datos de la oferta
 	*
 	*/
 	public function store()
 	{	
-		$paramFacultad = array(
-			'fac_nombre' => $this->input->post("fac_nombre")			
+		$paramOferta = array(
+			'ofer_destino' => $this->input->post("ofer_destino"),
+			'ofer_descripcion' => $this->input->post("ofer_descripcion")
 		);
-		//valido si la facultad ya ha sido registrada...
-		$query = $this->db->get_where('facultad', array('fac_nombre' => $this->input->post("fac_nombre")));
-		if(empty($query->row()))
-		{
-			$this->MFacultad->guardar($paramFacultad);		
-			$data['response'] = 'La facultad ha sido registrada satisfactoriamente';
-			$this->load->view('layouts/top');
-	       	$this->load->view('facultad/create', $data);
-	       	$this->load->view('layouts/bottom');	
-		}
-		else
-		{			
-			//si no existe facultad error
-			$data['response'] = 'La facultad no está registrada, ingrese de nuevo el nombre de la facultad o cree una facultad nueva <a href="'.base_url().'index.php/Facultad/create">aquí</a>';
-			$this->load->view('layouts/top');
-	       	$this->load->view('ajustes/index', $data);
-	       	$this->load->view('layouts/bottom');
-		}
+		if(null !== $this->input->post("ofer_destino_dep"))
+			$paramOferta['ofer_destino_dep'] = $this->input->post("ofer_destino_dep");
+		$this->MOferta->guardar($paramOferta);				
+		$data['response'] = 'La oferta ha sido registrada satisfactoriamente';
+		$data['ofertas'] = $this->MOferta->get_ofertas();
+		$this->load->view('layouts/top');
+	    $this->load->view('oferta/index', $data);
+	    $this->load->view('layouts/bottom');
 	}
 	/*
-	* Método edit, para mostrar formulario de edición de facultad
+	* Método edit, para mostrar formulario de edición de oferta
 	*
 	*/	
-	public function edit($fac_id){
-		$item = $this->MFacultad->get_facultades($fac_id);
+	public function edit($ofer_id){
+		$item = $this->MOferta->get_ofertas($ofer_id);
 		$this->load->view('layouts/top');
-		$this->load->view('facultad/edit',array('item'=>$item));
+		$this->load->view('oferta/edit',array('item'=>$item));
 		$this->load->view('layouts/bottom');
 	}
 	/*
 	* Método update, para actualizar los datos generales del sistema
 	*
 	*/
-	public function update($fac_id)
+	public function update($ofer_id)
 	{	
-		$query = $this->db->get_where('facultad', array('fac_id' => $fac_id));
+		$query = $this->db->get_where('oferta', array('ofer_id' => $ofer_id));
 		if($query->row_array())
 		{
-			$this->MFacultad->update($fac_id);
-			$data['facultades'] = $this->MFacultad->get_facultades();
-			$data['response'] = 'La facultad se ha actualizado correctamente.';
+			$this->MOferta->update($ofer_id);
+			$data['response'] = 'La oferta se ha actualizado correctamente.';
+			$data['ofertas'] = $this->MOferta->get_ofertas();
 			$this->load->view('layouts/top');
-	       	$this->load->view('facultad/index', $data);
-	       	$this->load->view('layouts/bottom');
-		}
-		else
-		{
-			$data['item'] = $this->MFacultad->get_facultades($fac_id);
-			$data['error'] = 'Error, esta facultad no parece estar registrada.';
-			$this->load->view('layouts/top');
-	       	$this->load->view('facultad/edit',$data);
-	       	$this->load->view('layouts/bottom');
+			$this->load->view('oferta/index',$data);
+			$this->load->view('layouts/bottom');
 		}
 	}
 	/*
-	* Metodo para mostrar confirmación de eliminación de facultad
+	* Metodo para mostrar confirmación de eliminación de oferta
 	*
 	*/
-	public function confirm_delete($fac_id)
+	public function confirm_delete($ofer_id)
 	{		
-		$data['facultad'] = $this->MFacultad->get_facultades($fac_id);		
+		$data['oferta'] = $this->MOferta->get_ofertas($ofer_id);		
 		$this->load->view('layouts/top');
-		$this->load->view('facultad/delete', $data);
+		$this->load->view('oferta/delete', $data);
 		$this->load->view('layouts/bottom');
 	}
 	/*
-	* Metodo para eliminación de facultad
+	* Metodo para eliminación de oferta
 	*
 	*/
-	public function delete($fac_id)
+	public function delete($ofer_id)
 	{		
-		$item = $this->MFacultad->delete($fac_id);
-		$data['response'] = 'Facultad eliminada correctamente.';
-		$data['facultades'] = $this->MFacultad->get_facultades();
+		$item = $this->MOferta->delete($ofer_id);
+		$data['response'] = 'oferta eliminada correctamente.';
+		$data['ofertas'] = $this->MOferta->get_ofertas();
 		
 		$this->load->view('layouts/top');
-		$this->load->view('facultad/index', $data);
+		$this->load->view('oferta/index', $data);
 		$this->load->view('layouts/bottom');
 	}
 }

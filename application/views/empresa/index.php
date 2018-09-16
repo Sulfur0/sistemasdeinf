@@ -1,5 +1,5 @@
 <!-- main-heading -->
-<h2 class="main-title-w3layouts mb-2 text-center">Facultades</h2>
+<h2 class="main-title-w3layouts mb-2 text-center">empresas</h2>
 <!--// main-heading -->
 <?php if (isset($response)) { ?>
 	<div class="col-md-6 offset-md-3 space-bot-md">
@@ -22,22 +22,21 @@
 		<table class="table">
 	        <thead class="thead-dark">
 	            <tr>
-	                <th scope="col">Destino</th>
-	                <th scope="col">Departamento</th>
-	                <th scope="col">Descripción</th>
+	            	<th scope="col">Rif</th>
+	                <th scope="col">Nombre</th>
 	                <th scope="col">Acciones</th>
 	            </tr>
 	        </thead>
 	        <tbody>
-	        	<?php foreach ($ofertas as $oferta): ?>
+	        	<?php foreach ($empresas as $empresa): ?>
 	                <tr>
-	                    <td><?php echo $oferta['ofer_destino'] ?></td>	
-	                    <td><?php echo $oferta['ofer_destino_dep'] ?></td>
-	                    <td><?php echo $oferta['ofer_descripcion'] ?></td>
+	                	<td><?php echo $empresa['emp_rif'] ?></td>	
+	                    <td><?php echo $empresa['emp_nombre'] ?></td>	
 	                    <td>
-	                    	<div class="btn-group">
-	                    		<a href="<?php echo base_url(); ?>index.php/Oferta/edit/<?php echo $oferta['ofer_id'];?>" class="btn btn-sm btn-warning">Editar</a>
-	                    		<a href="<?php echo base_url(); ?>index.php/Oferta/confirm_delete/<?php echo $oferta['ofer_id'];?>" class="btn btn-sm btn-danger">Eliminar</a>
+	                    	<div class="btn-group">	                    		
+	                    		<a href="<?php echo base_url(); ?>index.php/Oferta/create/<?php echo $empresa['emp_id'];?>/Empresa" class="btn btn-sm btn-primary">Simular Oferta</a>
+	                    		<a href="<?php echo base_url(); ?>index.php/Empresa/edit/<?php echo $empresa['emp_id'];?>" class="btn btn-sm btn-warning">Editar</a>
+	                    		<a href="<?php echo base_url(); ?>index.php/Empresa/confirm_delete/<?php echo $empresa['emp_id'];?>" class="btn btn-sm btn-danger">Eliminar</a>
 	                    	</div>
 	                    </td>
 	                </tr>

@@ -17,8 +17,9 @@ class Ajustes extends CI_Controller
 	*
 	*/
 	public function index(){
+		$data['facultades'] = $this->MFacultad->get_facultades();
 		$this->load->view('layouts/top');
-		$this->load->view('ajustes/index');
+		$this->load->view('ajustes/index',$data);
 		$this->load->view('layouts/bottom');
 	}
 	/*

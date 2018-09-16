@@ -15,7 +15,7 @@
 	</div>
 <?php } ?>
 <div class="form-body-w3-agile text-center w-lg-50 w-sm-75 w-100 mx-auto mt-5">
-	<form action="<?php echo base_url(); ?>index.php/Facultad/store" method="post">
+	<form action="<?php echo base_url(); ?>index.php/Oferta/store" method="post">
 	    <div class="form-group">
 	    	<div class="row">
 	    		<div class="col-md-12">
@@ -29,7 +29,7 @@
 	        		<select name="ofer_destino_dep" id="ofer_destino_dep" class="form-control" required="">
 	        			<option disabled selected value>Selecciona un Departamento</option>
 	        			<?php foreach ($departamentos as $departamento ) { ?>
-	        			<option value="<?php echo $departamento['dep_id']; ?>"><?php echo $departamento['dep_nombre']; ?></option>	
+	        			<option value="<?php echo $departamento['dep_nombre']; ?>"><?php echo $departamento['dep_nombre']; ?></option>	
 	        			<?php } ?>
 	        		</select>
 	    		</div>	    		

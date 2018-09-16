@@ -32,6 +32,7 @@
 	                    <th scope="row"><?php echo $facultad['fac_nombre'] ?></th>	
 	                    <td>
 	                    	<div class="btn-group">
+	                    		<a href="<?php echo base_url(); ?>index.php/Carrera/index/<?php echo $facultad['fac_id'];?>" class="btn btn-sm btn-default">Carreras</a>
 	                    		<a href="<?php echo base_url(); ?>index.php/Departamento/index/<?php echo $facultad['fac_id'];?>" class="btn btn-sm btn-default">Departamentos</a>
 	                    		<a href="<?php echo base_url(); ?>index.php/Oferta/create/<?php echo $facultad['fac_id'];?>/facultad" class="btn btn-sm btn-primary">Simular Oferta</a>
 	                    		<a href="<?php echo base_url(); ?>index.php/Facultad/edit/<?php echo $facultad['fac_id'];?>" class="btn btn-sm btn-warning">Editar</a>

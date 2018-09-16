@@ -1,5 +1,5 @@
 <!-- main-heading -->
-<h3 class="main-title-w3layouts mb-2 text-center">Departamentos de la facultad <?php echo $facultad["fac_nombre"];?></h3>
+<h3 class="main-title-w3layouts mb-2 text-center">Carreras de la facultad <?php echo $facultad["fac_nombre"];?></h3>
 <!--// main-heading -->
 <?php if (isset($response)) { ?>
 	<div class="col-md-6 offset-md-3 space-bot-md">
@@ -23,7 +23,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="btn-group">
-						<a href="<?php echo base_url(); ?>index.php/Departamento/create/<?php echo $facultad["fac_id"];?>" class="btn btn-primary">+ Agregar departamento</a>
+						<a href="<?php echo base_url(); ?>index.php/Carrera/create/<?php echo $facultad["fac_id"];?>" class="btn btn-primary">+ Agregar carrera</a>
 					</div>
 				</div>
 			</div>
@@ -32,17 +32,19 @@
 	        <thead class="thead-dark">
 	            <tr>
 	                <th scope="col">Nombre</th>
+	                <th scope="col">Unidades de Credito</th>
 	                <th scope="col">Acciones</th>
 	            </tr>
 	        </thead>
 	        <tbody>
-	        	<?php foreach ($departamentos as $departamento): ?>
+	        	<?php foreach ($carreras as $carrera): ?>
 	                <tr>
-	                    <th scope="row"><?php echo $departamento['dep_nombre'] ?></th>	
+	                    <td><?php echo $carrera['carr_nombre'] ?></td>
+	                    <td><?php echo $carrera['carr_unid_cred'] ?></td>	
 	                    <td>
 	                    	<div class="btn-group">
-	                    		<a href="<?php echo base_url(); ?>index.php/Departamento/edit/<?php echo $departamento['dep_id'];?>" class="btn btn-sm btn-warning">Editar</a>
-	                    		<a href="<?php echo base_url(); ?>index.php/Departamento/confirm_delete/<?php echo $departamento['dep_id'];?>" class="btn btn-sm btn-danger">Eliminar</a>
+	                    		<a href="<?php echo base_url(); ?>index.php/Carrera/edit/<?php echo $carrera['carr_id'];?>" class="btn btn-sm btn-warning">Editar</a>
+	                    		<a href="<?php echo base_url(); ?>index.php/Carrera/confirm_delete/<?php echo $carrera['carr_id'];?>" class="btn btn-sm btn-danger">Eliminar</a>
 	                    	</div>
 	                    </td>
 	                </tr>

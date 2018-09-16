@@ -10,6 +10,8 @@ class Estudiantes extends CI_Controller
 		parent::__construct();
 		$this->load->model('MEstudiantes');
 		$this->load->model('MTelefonos');
+		$this->load->model('MFacultad');
+		$this->load->model('MCarrera');
 		$this->load->helper('url');
 	}
 	/*
@@ -17,18 +19,30 @@ class Estudiantes extends CI_Controller
 	*
 	*/
 	public function index(){
-		$this->load->view('layouts/top');
-		$this->load->view('estudiantes/home');
-		$this->load->view('layouts/bottom');
+		return "index errado.";
 	}
 	/*
 	* Método para el mostrar el formulario de registro de estudiantes
 	*
 	*/
 	public function create(){
+		$data['facultades'] = $this->MFacultad->get_facultades();	
 		$this->load->view('layouts/top');
-		$this->load->view('estudiantes/create');
+		$this->load->view('estudiantes/create',$data);
 		$this->load->view('layouts/bottom');
+	}
+	/*
+	* Método para devolver las carreras mediante AJAX
+	*
+	*/
+	public function find_carreras(){
+		$entrada = $this->input->post("facultad");
+		$query = $this->db->get_where('carrera', array('carrera.fac_id' => $entrada));		
+		// hago texto compatible con IE7, IE8
+  		header('Content-type: text/plain'); 
+  		// hago el json no IE
+  		header('Content-type: application/json');
+		echo json_encode($query->result_array());
 	}
 	/*
 	* Método para el registro de estudiantes
@@ -45,7 +59,7 @@ class Estudiantes extends CI_Controller
 			'est_direccion' => $this->input->post("est_direccion"),
 			'est_email' => $this->input->post("est_email"),
 			'est_curriculum' => $this->input->post("est_curriculum"),
-			'est_carrera' => $this->input->post("est_carrera"),
+			'car_id' => $this->input->post("car_id"),
 			'est_semestre' => $this->input->post("est_semestre")			
 		);
 		
@@ -89,8 +103,9 @@ class Estudiantes extends CI_Controller
 	*
 	*/
 	public function view()
-	{
+	{		
 		$data['estudiantes'] = $this->MEstudiantes->get_estudiantes();	
+		$data['carreras'] = $this->MCarrera->get_carreras();
 		$this->load->view('layouts/top');
 		$this->load->view('estudiantes/list', $data);
 		$this->load->view('layouts/bottom');

@@ -41,7 +41,16 @@
 	                    <td><?php echo $estudiante['est_fec_nam'] ?></td>
 						<td><?php echo $estudiante['est_direccion'] ?></td>
 	                    <td><?php echo $estudiante['est_email'] ?></td>
-	                    <td><?php echo $estudiante['est_carrera'] ?></td>
+	                    <td>
+	                    	<?php foreach ($carreras as $carrera) 
+	                    	{
+	                    		if($estudiante['car_id'] == $carrera['carr_id']){
+	                    			echo $carrera['carr_nombre'];
+	                    		}
+	                    	}
+	                    	?>
+	                    	
+	                    </td>
 	                    <td>
 	                    	<a href="<?php echo base_url(); ?>index.php/Estudiantes/telefonos/<?php echo $estudiante['est_id'];?>" class="btn btn-sm btn-primary">Teléfonos</a>
 	                    </td>

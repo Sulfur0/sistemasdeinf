@@ -50,14 +50,27 @@
 	    </div>
 	    <div class="form-group">
 	    	<div class="row">
-	    	<div class="col-md-6">
-		        <label>Carrera</label>
-		        <input type="text" class="form-control" placeholder="Ingresa Carrera" name="est_carrera" value="">
+	    		<div class="col-md-12">
+			        <label>Facultad</label>
+			        <select id="facultad" class="form-control">
+			        	<option disabled selected value>Selecciona una facultad</option>
+			        	<?php foreach ($facultades as $facultad) { ?>
+			        	<option value="<?php echo $facultad['fac_id'];?>"><?php echo $facultad['fac_nombre'];?></option>
+			        	<?php } ?> 
+			        </select>
+	        	</div>
 	        </div>
-	        <div class="col-md-6">
-		        <label>Semestre que cursa</label>
-		        <input type="number" class="form-control" placeholder="Ingresa el semestre que cursa actualmente" name="est_semestre">
-	        </div>
+	        <div class="row">
+		    	<div class="col-md-8">
+			        <label>Carrera</label>			        
+			        <select name="car_id" id="est_carrera" class="form-control">
+			        	<option disabled selected value>Selecciona una carrera</option>			        	
+			        </select>
+		        </div>
+		        <div class="col-md-4">
+			        <label>Semestre que cursa</label>
+			        <input type="number" class="form-control" placeholder="Ingresa el semestre que cursa actualmente" name="est_semestre">
+		        </div>
 	        </div>
 	    </div>
 		<hr>
@@ -90,9 +103,35 @@
 			</div>
 			
 		</div>
-
-	    <button type="submit" class="btn btn-success mt-sm-5 mt-3 px-4">Registrar</button>
+		<a href="#" id="test">test</a>
+		<button type="submit" class="btn btn-success mt-sm-5 mt-3 px-4">Registrar</button>
 	</form>
 </div>
-
+<script src='<?php echo base_url(); ?>js/jquery-2.2.3.min.js'></script>
+<script type="text/javascript">
+$('#facultad').on('change', function() {
+	id_numbers = new Array();
+  	$.ajax({
+       	url: "<?php echo base_url(); ?>index.php/Estudiantes/find_carreras",
+       	type: "POST",
+       	dataType:'json',
+       	data: ({facultad: this.value}),
+       	success: function (result) {
+       		//id_numbers = JSON.parse(result);
+       		console.log(result);
+       		var opciones = "<option disabled selected value>Selecciona una carrera</option>";
+       		var i;
+			for (i = 0; i < result.length; ++i) {
+			    opts = "<option value ='"+result[i]["carr_id"]+"'>"+result[i]["carr_nombre"]+"</option>";
+       			opciones = opciones.concat(opts);
+			}      		 
+       		$('#est_carrera').html(opciones);
+       	},
+       	error: function(xhr, ajaxOptions, thrownError){
+          	alert("Error: "+thrownError+" "+xhr+" "+ajaxOptions);
+       	},
+       	timeout : 15000//timeout of the ajax call
+  	});
+});
+</script>
 		
