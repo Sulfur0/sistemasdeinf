@@ -100,6 +100,17 @@ class Llamado extends CI_Controller
 		}
 	}
 	/*
+	* Metodo para mostrar información sobre llamado desierto
+	*
+	*/
+	public function desierto($llam_id)
+	{		
+		$data['llamado'] = $this->MLlamado->get_llamados($llam_id);	
+		$this->load->view('layouts/top');
+		$this->load->view('Llamado/desierto', $data);
+		$this->load->view('layouts/bottom');
+	}
+	/*
 	* Metodo para mostrar confirmación de eliminación de Llamado
 	*
 	*/

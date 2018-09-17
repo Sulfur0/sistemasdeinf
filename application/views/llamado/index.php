@@ -35,13 +35,21 @@
 	        	<?php foreach ($llamados as $llamado): ?>
 	                <tr>
 	                	<?php if($llamado['ofer_figurar'] == 1){ ?>
-							<td><?php echo $llamado['ofer_destino'] ?></td>	
+							<td><?php echo $llamado['ofer_destino']; ?></td>	
 	                	<?php } else { echo "<td></td>"; } ?>	                    
-	                    <td><?php echo $llamado['ofer_destino_dep'] ?></td>
-	                    <td><?php echo $llamado['ofer_descripcion'] ?></td>
-	                    <td><?php echo $llamado['llam_fec_inic'] ?></td>
-	                    <td><?php echo $llamado['llam_fec_lim'] ?></td>
-	                    <td><?php echo $llamado['llam_status'] ?></td>
+	                    <td><?php echo $llamado['ofer_destino_dep']; ?></td>
+	                    <td><?php echo $llamado['ofer_descripcion']; ?></td>
+	                    <td><?php echo $llamado['llam_fec_inic']; ?></td>
+	                    <td><?php echo $llamado['llam_fec_lim']; ?></td>
+	                    <td><?php
+	                    if($llamado['llam_status'] == 'desierto'){?>
+	                    	<a href="<?php echo base_url(); ?>index.php/Llamado/desierto/<?php echo $llamado['llam_id'];?>" class="btn btn-sm btn-warning">Desierto</a>
+	                    <?php
+	                    }else{
+	                    	echo $llamado['llam_status'];
+	                    }
+	                     ?></td>
+	                    
 	                    <td>
 	                    	<div class="btn-group">
 	                    		<a href="<?php echo base_url(); ?>index.php/Inscrito/index/<?php echo $llamado['llam_id'];?>" class="btn btn-sm btn-primary">Ver Inscritos</a>
