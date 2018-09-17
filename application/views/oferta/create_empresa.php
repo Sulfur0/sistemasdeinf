@@ -25,6 +25,19 @@
 	    	</div>	
 	    	<div class="row">
 	    		<div class="col-md-12">
+	    			<label>¿Desea que el nombre de la empresa figure en la oferta?</label>	
+	    		</div>	    		
+	    	</div>	
+	    	<div class="row">
+	    		<div class="col-md-6">
+	    			<input type="radio" name="ofer_figurar" value="1"> Sí
+	    		</div>
+	    		<div class="col-md-6">
+  					<input type="radio" name="ofer_figurar" value="0"> No
+	    		</div>
+	    	</div>
+	    	<div class="row">
+	    		<div class="col-md-12">
 	    			<label>Descripción</label>
 	        		<input type="text" class="form-control" placeholder="Breve descripción de la oferta" name="ofer_descripcion" value="">
 	    		</div>	    		

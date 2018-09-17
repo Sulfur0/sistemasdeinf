@@ -104,8 +104,7 @@ class Estudiantes extends CI_Controller
 	*/
 	public function view()
 	{		
-		$data['estudiantes'] = $this->MEstudiantes->get_estudiantes();	
-		$data['carreras'] = $this->MCarrera->get_carreras();
+		$data['estudiantes'] = $this->MEstudiantes->get_estudiantes();
 		$this->load->view('layouts/top');
 		$this->load->view('estudiantes/list', $data);
 		$this->load->view('layouts/bottom');
@@ -118,12 +117,11 @@ class Estudiantes extends CI_Controller
 	*/
 	public function edit($id)
 	{
-		if(!$this->session->userdata('user')) header('location: '.base_url());
-		
-		$item = $this->MUsuario->get_users($id);
+		$data['facultades'] = $this->MFacultad->get_facultades();
+		$data['estudiante'] = $this->MEstudiantes->get_estudiantes($id);
 
        	$this->load->view('layouts/top');
-       	$this->load->view('persona/edit',array('item'=>$item));
+       	$this->load->view('estudiantes/edit',$data);
        	$this->load->view('layouts/bottom');
 	}
 	/*
@@ -159,14 +157,34 @@ class Estudiantes extends CI_Controller
 		}
 	}
 	/*
+	* Metodo ver el curriculum de un estudiante
+	*
+	*/
+	public function curriculum($id)
+	{
+		$data['estudiante'] = $this->MEstudiantes->get_estudiantes($id);
+		$this->load->view('layouts/top');
+		$this->load->view('estudiantes/curriculum', $data);
+		$this->load->view('layouts/bottom');
+	}
+	/*
+	* Metodo ver los teléfonos de un estudiante
+	*
+	*/
+	public function telefonos($id)
+	{
+		$data['estudiante'] = $this->MEstudiantes->get_estudiantes($id);
+		$data['telefonos'] = $this->MTelefonos->get_telefonos($id);		
+		$this->load->view('layouts/top');
+		$this->load->view('estudiantes/telefono', $data);
+		$this->load->view('layouts/bottom');
+	}
+	/*
 	* Metodo para eliminar un usuario
 	*
 	*/
 	public function delete($id)
 	{
-		/*
-		se puede eliminar un usuario pero deberia poder seguir existiendo como persona bajo la base de datos
-		*/
 		if(!$this->session->userdata('user')) header('location: '.base_url());
 		$item = $this->MUsuario->delete($id);
 		$data['response'] = 'Usuario eliminado correctamente.';

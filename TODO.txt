@@ -1,8 +1,7 @@
-* estudiantes_inscritos compuesto por estudiantes
-* llamado dirigido a estudiantes_inscritos
-* Oficina abre llamado
-* Estudiante debe estar registrado en oficina
 
+
+SECUNDARIOS
+* Arreglar los telefonos en la creacion del estudiante
 * Arreglar el muestreo y edición del curriculum de los estudiantes y los telefonos
 * Edición de estudiante
-
+* En la edición de empresa (no en facultad), falta editar el campo de ofer_figurar

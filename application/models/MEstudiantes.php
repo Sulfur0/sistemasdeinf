@@ -16,14 +16,15 @@ class MEstudiantes extends CI_Model
 	}
 
 	
-	public function get_estudiantes($est_cedula = FALSE)
+	public function get_estudiantes($id = FALSE)
 	{
-		if ($est_cedula === FALSE)
+		$this->db->join('carrera', 'estudiantes.car_id = carrera.carr_id', 'left');
+		if ($id === FALSE)
 	    {
 	        $query = $this->db->get('estudiantes');
 	        return $query->result_array();
 	    }
-		$query = $this->db->get_where('estudiantes', array('estudiantes.est_cedula' => $est_cedula));
+		$query = $this->db->get_where('estudiantes', array('estudiantes.est_id' => $id));
 	    return $query->row_array();
 	}
 

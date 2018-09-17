@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<!-- saved from url=(0082)http://localhost/phpmyadmin/db_datadict.php?db=sistemasdeinf&goto=db_structure.php -->
+<html lang="es" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex,nofollow"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><link rel="icon" href="http://localhost/phpmyadmin/favicon.ico" type="image/x-icon"><link rel="shortcut icon" href="http://localhost/phpmyadmin/favicon.ico" type="image/x-icon"><link rel="stylesheet" type="text/css" href="./diccionario_datos_files/print.css"><title>Vista de impresión - phpMyAdmin 4.7.4</title><script data-cfasync="false" type="text/javascript" src="./diccionario_datos_files/get_scripts.js.php"></script><script data-cfasync="false" type="text/javascript" src="./diccionario_datos_files/get_scripts.js(1).php"></script><script data-cfasync="false" type="text/javascript" src="./diccionario_datos_files/get_scripts.js(2).php"></script><script data-cfasync="false" type="text/javascript" src="./diccionario_datos_files/get_scripts.js(3).php"></script><script data-cfasync="false" type="text/javascript" src="./diccionario_datos_files/whitelist.php"></script><script data-cfasync="false" type="text/javascript" src="./diccionario_datos_files/messages.php"></script><script data-cfasync="false" type="text/javascript" src="./diccionario_datos_files/get_image.js.php"></script><script data-cfasync="false" type="text/javascript">// <![CDATA[
+PMA_commonParams.setAll({common_query:"",opendb_url:"db_structure.php",collation_connection:"utf8mb4_general_ci",lang:"es",server:"1",table:"",db:"sistemasdeinf",token:"d13a2e0efc61406c3fca72c7e89424e0",text_dir:"ltr",show_databases_navigation_as_tree:"1",pma_text_default_tab:"Examinar",pma_text_left_default_tab:"Estructura",pma_text_left_default_tab2:"",LimitChars:"50",pftext:"P",confirm:"1",LoginCookieValidity:"1440",session_gc_maxlifetime:"1440",logged_in:"1",PMA_VERSION:"4.7.4",auth_type:"config",user:"root"});
+ConsoleEnterExecutes=false
+AJAX.scriptHandler.add("jquery/jquery.min.js",0).add("jquery/jquery-migrate-3.0.0.js",0).add("whitelist.php",1).add("sprintf.js",1).add("ajax.js",0).add("keyhandler.js",1).add("jquery/jquery-ui.min.js",0).add("jquery/jquery.cookie.js",0).add("jquery/jquery.mousewheel.js",0).add("jquery/jquery.event.drag-2.2.js",0).add("jquery/jquery-ui-timepicker-addon.js",0).add("jquery/jquery.ba-hashchange-1.3.js",0).add("jquery/jquery.debounce-1.0.5.js",0).add("menu-resizer.js",1).add("cross_framing_protection.js",0).add("rte.js",1).add("tracekit/tracekit.js",1).add("error_report.js",1).add("messages.php",0).add("get_image.js.php",0).add("config.js",1).add("doclinks.js",1).add("functions.js",1).add("navigation.js",1).add("indexes.js",1).add("common.js",1).add("page_settings.js",1).add("shortcuts_handler.js",1).add("codemirror/lib/codemirror.js",0).add("codemirror/mode/sql/sql.js",0).add("codemirror/addon/runmode/runmode.js",0).add("codemirror/addon/hint/show-hint.js",0).add("codemirror/addon/hint/sql-hint.js",0).add("codemirror/addon/lint/lint.js",0).add("codemirror/addon/lint/sql-lint.js",0).add("console.js",1);
+$(function() {AJAX.fireOnload("whitelist.php");AJAX.fireOnload("sprintf.js");AJAX.fireOnload("keyhandler.js");AJAX.fireOnload("menu-resizer.js");AJAX.fireOnload("rte.js");AJAX.fireOnload("tracekit/tracekit.js");AJAX.fireOnload("error_report.js");AJAX.fireOnload("config.js");AJAX.fireOnload("doclinks.js");AJAX.fireOnload("functions.js");AJAX.fireOnload("navigation.js");AJAX.fireOnload("indexes.js");AJAX.fireOnload("common.js");AJAX.fireOnload("page_settings.js");AJAX.fireOnload("shortcuts_handler.js");AJAX.fireOnload("console.js");});
+// ]]></script><noscript><style>html{display:block}</style></noscript></head><body><noscript><div class="error"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_error" /> ¡Pasado este punto, debe tener Javascript activado!</div></noscript><div id="page_content"><div>
+<h2>carrera</h2>
+<table width="100%" class="print"><tbody><tr><th width="50">Columna</th><th width="80">Tipo</th><th width="40">Nulo</th><th width="70">Predeterminado</th>    <th>Enlaces a</th>
+    <th>Comentarios</th>
+    <th>MIME</th>
+</tr><tr><td class="nowrap">carr_id <em>(Primaria)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr><td class="nowrap">carr_nombre</td><td class="nowrap" lang="en" dir="ltr">varchar(100)</td><td>No</td><td class="nowrap"></td>    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr><td class="nowrap">carr_unid_cred</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr><td class="nowrap">fac_id</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>facultad -&gt; fac_id</td>
+    <td></td>
+    <td></td>
+</tr></tbody></table><h3>Índices</h3><div class="no_indexes_defined hide"><div class="notice"><img src="./diccionario_datos_files/dot.gif" title="" alt="" class="icon ic_s_notice"> ¡No se ha definido ningún índice!</div></div><table id="table_index"><thead><tr><th>Nombre de la clave</th><th>Tipo</th><th>Único</th><th>Empaquetado</th><th>Columna</th><th>Cardinalidad</th><th>Cotejamiento</th><th>Nulo</th><th>Comentario</th></tr></thead><tbody><tr class="noclick"><td rowspan="1">PRIMARY</td><td rowspan="1">BTREE</td><td rowspan="1">Sí</td><td rowspan="1">No</td><td>carr_id</td><td>5</td><td>A</td><td>No</td><td rowspan="1"></td></tr><tr class="noclick"><td rowspan="1">car_fk_1</td><td rowspan="1">BTREE</td><td rowspan="1">No</td><td rowspan="1">No</td><td>fac_id</td><td>5</td><td>A</td><td>No</td><td rowspan="1"></td></tr></tbody></table></div><div>
+<h2>departamento</h2>
+<table width="100%" class="print"><tbody><tr><th width="50">Columna</th><th width="80">Tipo</th><th width="40">Nulo</th><th width="70">Predeterminado</th>    <th>Enlaces a</th>
+    <th>Comentarios</th>
+    <th>MIME</th>
+</tr><tr><td class="nowrap">dep_id <em>(Primaria)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr><td class="nowrap">dep_nombre</td><td class="nowrap" lang="en" dir="ltr">varchar(100)</td><td>No</td><td class="nowrap"></td>    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr><td class="nowrap">fac_id</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>facultad -&gt; fac_id</td>
+    <td></td>
+    <td></td>
+</tr></tbody></table><h3>Índices</h3><div class="no_indexes_defined hide"><div class="notice"><img src="./diccionario_datos_files/dot.gif" title="" alt="" class="icon ic_s_notice"> ¡No se ha definido ningún índice!</div></div><table id="table_index"><thead><tr><th>Nombre de la clave</th><th>Tipo</th><th>Único</th><th>Empaquetado</th><th>Columna</th><th>Cardinalidad</th><th>Cotejamiento</th><th>Nulo</th><th>Comentario</th></tr></thead><tbody><tr class="noclick"><td rowspan="1">PRIMARY</td><td rowspan="1">BTREE</td><td rowspan="1">Sí</td><td rowspan="1">No</td><td>dep_id</td><td>3</td><td>A</td><td>No</td><td rowspan="1"></td></tr><tr class="noclick"><td rowspan="1">dep_fk_1</td><td rowspan="1">BTREE</td><td rowspan="1">No</td><td rowspan="1">No</td><td>fac_id</td><td>3</td><td>A</td><td>No</td><td rowspan="1"></td></tr></tbody></table></div><div>
+<h2>empresa</h2>
+<table width="100%" class="print"><tbody><tr><th width="50">Columna</th><th width="80">Tipo</th><th width="40">Nulo</th><th width="70">Predeterminado</th>    <th>Enlaces a</th>
+    <th>Comentarios</th>
+    <th>MIME</th>
+</tr><tr><td class="nowrap">emp_id <em>(Primaria)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr><td class="nowrap">emp_nombre</td><td class="nowrap" lang="en" dir="ltr">varchar(100)</td><td>No</td><td class="nowrap"></td>    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr><td class="nowrap">emp_rif</td><td class="nowrap" lang="en" dir="ltr">varchar(25)</td><td>No</td><td class="nowrap"></td>    <td></td>
+    <td></td>
+    <td></td>
+</tr></tbody></table><h3>Índices</h3><div class="no_indexes_defined hide"><div class="notice"><img src="./diccionario_datos_files/dot.gif" title="" alt="" class="icon ic_s_notice"> ¡No se ha definido ningún índice!</div></div><table id="table_index"><thead><tr><th>Nombre de la clave</th><th>Tipo</th><th>Único</th><th>Empaquetado</th><th>Columna</th><th>Cardinalidad</th><th>Cotejamiento</th><th>Nulo</th><th>Comentario</th></tr></thead><tbody><tr class="noclick"><td rowspan="1">PRIMARY</td><td rowspan="1">BTREE</td><td rowspan="1">Sí</td><td rowspan="1">No</td><td>emp_id</td><td>1</td><td>A</td><td>No</td><td rowspan="1"></td></tr></tbody></table></div><div>
+<h2>estudiantes</h2>
+<table width="100%" class="print"><tbody><tr><th width="50">Columna</th><th width="80">Tipo</th><th width="40">Nulo</th><th width="70">Predeterminado</th>    <th>Enlaces a</th>
+    <th>Comentarios</th>
+    <th>MIME</th>
+</tr><tr><td class="nowrap">est_id <em>(Primaria)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr><td class="nowrap">est_cedula</td><td class="nowrap" lang="en" dir="ltr">varchar(15)</td><td>No</td><td class="nowrap"></td>    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr><td class="nowrap">est_nombre</td><td class="nowrap" lang="en" dir="ltr">varchar(50)</td><td>No</td><td class="nowrap"></td>    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr><td class="nowrap">est_fec_nam</td><td class="nowrap" lang="en" dir="ltr">date</td><td>No</td><td class="nowrap"></td>    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr><td class="nowrap">est_direccion</td><td class="nowrap" lang="en" dir="ltr">varchar(255)</td><td>No</td><td class="nowrap"></td>    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr><td class="nowrap">est_email</td><td class="nowrap" lang="en" dir="ltr">varchar(100)</td><td>No</td><td class="nowrap"></td>    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr><td class="nowrap">est_curriculum</td><td class="nowrap" lang="en" dir="ltr">varchar(1000)</td><td>No</td><td class="nowrap"></td>    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr><td class="nowrap">car_id</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>carrera -&gt; carr_id</td>
+    <td></td>
+    <td></td>
+</tr><tr><td class="nowrap">est_semestre</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td></td>
+    <td></td>
+    <td></td>
+</tr></tbody></table><h3>Índices</h3><div class="no_indexes_defined hide"><div class="notice"><img src="./diccionario_datos_files/dot.gif" title="" alt="" class="icon ic_s_notice"> ¡No se ha definido ningún índice!</div></div><table id="table_index"><thead><tr><th>Nombre de la clave</th><th>Tipo</th><th>Único</th><th>Empaquetado</th><th>Columna</th><th>Cardinalidad</th><th>Cotejamiento</th><th>Nulo</th><th>Comentario</th></tr></thead><tbody><tr class="noclick"><td rowspan="1">PRIMARY</td><td rowspan="1">BTREE</td><td rowspan="1">Sí</td><td rowspan="1">No</td><td>est_id</td><td>1</td><td>A</td><td>No</td><td rowspan="1"></td></tr><tr class="noclick"><td rowspan="1">est_cedula</td><td rowspan="1">BTREE</td><td rowspan="1">Sí</td><td rowspan="1">No</td><td>est_cedula</td><td>1</td><td>A</td><td>No</td><td rowspan="1"></td></tr><tr class="noclick"><td rowspan="1">est_fk_1</td><td rowspan="1">BTREE</td><td rowspan="1">No</td><td rowspan="1">No</td><td>car_id</td><td>1</td><td>A</td><td>No</td><td rowspan="1"></td></tr></tbody></table></div><div>
+<h2>facultad</h2>
+<table width="100%" class="print"><tbody><tr><th width="50">Columna</th><th width="80">Tipo</th><th width="40">Nulo</th><th width="70">Predeterminado</th>    <th>Enlaces a</th>
+    <th>Comentarios</th>
+    <th>MIME</th>
+</tr><tr><td class="nowrap">fac_id <em>(Primaria)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr><td class="nowrap">fac_nombre</td><td class="nowrap" lang="en" dir="ltr">varchar(100)</td><td>No</td><td class="nowrap"></td>    <td></td>
+    <td></td>
+    <td></td>
+</tr></tbody></table><h3>Índices</h3><div class="no_indexes_defined hide"><div class="notice"><img src="./diccionario_datos_files/dot.gif" title="" alt="" class="icon ic_s_notice"> ¡No se ha definido ningún índice!</div></div><table id="table_index"><thead><tr><th>Nombre de la clave</th><th>Tipo</th><th>Único</th><th>Empaquetado</th><th>Columna</th><th>Cardinalidad</th><th>Cotejamiento</th><th>Nulo</th><th>Comentario</th></tr></thead><tbody><tr class="noclick"><td rowspan="1">PRIMARY</td><td rowspan="1">BTREE</td><td rowspan="1">Sí</td><td rowspan="1">No</td><td>fac_id</td><td>3</td><td>A</td><td>No</td><td rowspan="1"></td></tr></tbody></table></div><div>
+<h2>inscrito</h2>
+<table width="100%" class="print"><tbody><tr><th width="50">Columna</th><th width="80">Tipo</th><th width="40">Nulo</th><th width="70">Predeterminado</th>    <th>Enlaces a</th>
+    <th>Comentarios</th>
+    <th>MIME</th>
+</tr><tr><td class="nowrap">insc_id <em>(Primaria)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr><td class="nowrap">llam_id</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>llamado -&gt; llam_id</td>
+    <td></td>
+    <td></td>
+</tr><tr><td class="nowrap">est_id</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>estudiantes -&gt; est_id</td>
+    <td></td>
+    <td></td>
+</tr><tr><td class="nowrap">insc_fecha</td><td class="nowrap" lang="en" dir="ltr">date</td><td>No</td><td class="nowrap"></td>    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr><td class="nowrap">insc_contratado</td><td class="nowrap" lang="en" dir="ltr">tinyint(4)</td><td>No</td><td class="nowrap">0</td>    <td></td>
+    <td></td>
+    <td></td>
+</tr></tbody></table><h3>Índices</h3><div class="no_indexes_defined hide"><div class="notice"><img src="./diccionario_datos_files/dot.gif" title="" alt="" class="icon ic_s_notice"> ¡No se ha definido ningún índice!</div></div><table id="table_index"><thead><tr><th>Nombre de la clave</th><th>Tipo</th><th>Único</th><th>Empaquetado</th><th>Columna</th><th>Cardinalidad</th><th>Cotejamiento</th><th>Nulo</th><th>Comentario</th></tr></thead><tbody><tr class="noclick"><td rowspan="1">PRIMARY</td><td rowspan="1">BTREE</td><td rowspan="1">Sí</td><td rowspan="1">No</td><td>insc_id</td><td>2</td><td>A</td><td>No</td><td rowspan="1"></td></tr><tr class="noclick"><td rowspan="1">est_insc_fk_1</td><td rowspan="1">BTREE</td><td rowspan="1">No</td><td rowspan="1">No</td><td>llam_id</td><td>2</td><td>A</td><td>No</td><td rowspan="1"></td></tr><tr class="noclick"><td rowspan="1">est_insc_fk_2</td><td rowspan="1">BTREE</td><td rowspan="1">No</td><td rowspan="1">No</td><td>est_id</td><td>2</td><td>A</td><td>No</td><td rowspan="1"></td></tr></tbody></table></div><div>
+<h2>llamado</h2>
+<table width="100%" class="print"><tbody><tr><th width="50">Columna</th><th width="80">Tipo</th><th width="40">Nulo</th><th width="70">Predeterminado</th>    <th>Enlaces a</th>
+    <th>Comentarios</th>
+    <th>MIME</th>
+</tr><tr><td class="nowrap">llam_id <em>(Primaria)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr><td class="nowrap">llam_fec_inic</td><td class="nowrap" lang="en" dir="ltr">date</td><td>No</td><td class="nowrap"></td>    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr><td class="nowrap">llam_fec_lim</td><td class="nowrap" lang="en" dir="ltr">date</td><td>No</td><td class="nowrap"></td>    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr><td class="nowrap">llam_status</td><td lang="en" dir="ltr">enum('pendiente', 'desierto', 'finalizado')</td><td>No</td><td class="nowrap"></td>    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr><td class="nowrap">llam_desierto</td><td class="nowrap" lang="en" dir="ltr">varchar(255)</td><td>Sí</td><td class="nowrap"><i>NULL</i></td>    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr><td class="nowrap">ofer_id</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>oferta -&gt; ofer_id</td>
+    <td></td>
+    <td></td>
+</tr></tbody></table><h3>Índices</h3><div class="no_indexes_defined hide"><div class="notice"><img src="./diccionario_datos_files/dot.gif" title="" alt="" class="icon ic_s_notice"> ¡No se ha definido ningún índice!</div></div><table id="table_index"><thead><tr><th>Nombre de la clave</th><th>Tipo</th><th>Único</th><th>Empaquetado</th><th>Columna</th><th>Cardinalidad</th><th>Cotejamiento</th><th>Nulo</th><th>Comentario</th></tr></thead><tbody><tr class="noclick"><td rowspan="1">PRIMARY</td><td rowspan="1">BTREE</td><td rowspan="1">Sí</td><td rowspan="1">No</td><td>llam_id</td><td>1</td><td>A</td><td>No</td><td rowspan="1"></td></tr><tr class="noclick"><td rowspan="1">llam_fk_1</td><td rowspan="1">BTREE</td><td rowspan="1">No</td><td rowspan="1">No</td><td>ofer_id</td><td>1</td><td>A</td><td>No</td><td rowspan="1"></td></tr></tbody></table></div><div>
+<h2>oferta</h2>
+<table width="100%" class="print"><tbody><tr><th width="50">Columna</th><th width="80">Tipo</th><th width="40">Nulo</th><th width="70">Predeterminado</th>    <th>Enlaces a</th>
+    <th>Comentarios</th>
+    <th>MIME</th>
+</tr><tr><td class="nowrap">ofer_id <em>(Primaria)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr><td class="nowrap">ofer_destino</td><td class="nowrap" lang="en" dir="ltr">varchar(100)</td><td>No</td><td class="nowrap"></td>    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr><td class="nowrap">ofer_destino_dep</td><td class="nowrap" lang="en" dir="ltr">varchar(100)</td><td>Sí</td><td class="nowrap"><i>NULL</i></td>    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr><td class="nowrap">ofer_descripcion</td><td class="nowrap" lang="en" dir="ltr">varchar(255)</td><td>No</td><td class="nowrap"></td>    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr><td class="nowrap">ofer_figurar</td><td class="nowrap" lang="en" dir="ltr">tinyint(4)</td><td>No</td><td class="nowrap">1</td>    <td></td>
+    <td></td>
+    <td></td>
+</tr></tbody></table><h3>Índices</h3><div class="no_indexes_defined hide"><div class="notice"><img src="./diccionario_datos_files/dot.gif" title="" alt="" class="icon ic_s_notice"> ¡No se ha definido ningún índice!</div></div><table id="table_index"><thead><tr><th>Nombre de la clave</th><th>Tipo</th><th>Único</th><th>Empaquetado</th><th>Columna</th><th>Cardinalidad</th><th>Cotejamiento</th><th>Nulo</th><th>Comentario</th></tr></thead><tbody><tr class="noclick"><td rowspan="1">PRIMARY</td><td rowspan="1">BTREE</td><td rowspan="1">Sí</td><td rowspan="1">No</td><td>ofer_id</td><td>3</td><td>A</td><td>No</td><td rowspan="1"></td></tr></tbody></table></div><div>
+<h2>oficina</h2>
+<table width="100%" class="print"><tbody><tr><th width="50">Columna</th><th width="80">Tipo</th><th width="40">Nulo</th><th width="70">Predeterminado</th>    <th>Enlaces a</th>
+    <th>Comentarios</th>
+    <th>MIME</th>
+</tr><tr><td class="nowrap">ofi_id <em>(Primaria)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr><td class="nowrap">fac_id</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>facultad -&gt; fac_id</td>
+    <td></td>
+    <td></td>
+</tr></tbody></table><h3>Índices</h3><div class="no_indexes_defined hide"><div class="notice"><img src="./diccionario_datos_files/dot.gif" title="" alt="" class="icon ic_s_notice"> ¡No se ha definido ningún índice!</div></div><table id="table_index"><thead><tr><th>Nombre de la clave</th><th>Tipo</th><th>Único</th><th>Empaquetado</th><th>Columna</th><th>Cardinalidad</th><th>Cotejamiento</th><th>Nulo</th><th>Comentario</th></tr></thead><tbody><tr class="noclick"><td rowspan="1">PRIMARY</td><td rowspan="1">BTREE</td><td rowspan="1">Sí</td><td rowspan="1">No</td><td>ofi_id</td><td>1</td><td>A</td><td>No</td><td rowspan="1"></td></tr><tr class="noclick"><td rowspan="1">ofi_fk_1</td><td rowspan="1">BTREE</td><td rowspan="1">No</td><td rowspan="1">No</td><td>fac_id</td><td>1</td><td>A</td><td>No</td><td rowspan="1"></td></tr></tbody></table></div><div>
+<h2>telefonos</h2>
+<table width="100%" class="print"><tbody><tr><th width="50">Columna</th><th width="80">Tipo</th><th width="40">Nulo</th><th width="70">Predeterminado</th>    <th>Enlaces a</th>
+    <th>Comentarios</th>
+    <th>MIME</th>
+</tr><tr><td class="nowrap">tel_id <em>(Primaria)</em></td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr><td class="nowrap">tel_descripcion</td><td class="nowrap" lang="en" dir="ltr">varchar(255)</td><td>No</td><td class="nowrap"></td>    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr><td class="nowrap">tel_numero</td><td class="nowrap" lang="en" dir="ltr">varchar(50)</td><td>No</td><td class="nowrap"></td>    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr><td class="nowrap">est_id</td><td class="nowrap" lang="en" dir="ltr">int(11)</td><td>No</td><td class="nowrap"></td>    <td>estudiantes -&gt; est_id</td>
+    <td></td>
+    <td></td>
+</tr></tbody></table><h3>Índices</h3><div class="no_indexes_defined hide"><div class="notice"><img src="./diccionario_datos_files/dot.gif" title="" alt="" class="icon ic_s_notice"> ¡No se ha definido ningún índice!</div></div><table id="table_index"><thead><tr><th>Nombre de la clave</th><th>Tipo</th><th>Único</th><th>Empaquetado</th><th>Columna</th><th>Cardinalidad</th><th>Cotejamiento</th><th>Nulo</th><th>Comentario</th></tr></thead><tbody><tr class="noclick"><td rowspan="1">PRIMARY</td><td rowspan="1">BTREE</td><td rowspan="1">Sí</td><td rowspan="1">No</td><td>tel_id</td><td>4</td><td>A</td><td>No</td><td rowspan="1"></td></tr><tr class="noclick"><td rowspan="1">tel_fk_1</td><td rowspan="1">BTREE</td><td rowspan="1">No</td><td rowspan="1">No</td><td>est_id</td><td>4</td><td>A</td><td>No</td><td rowspan="1"></td></tr></tbody></table></div><p class="print_ignore"><input type="button" class="button" id="print" value="Imprimir"></p></div><div id="selflink" class="print_ignore"><a href="http://localhost/phpmyadmin/db_datadict.php?db=sistemasdeinf&amp;table=telefonos&amp;server=1&amp;target=" title="Abrir nueva ventana de phpMyAdmin" target="_blank" rel="noopener noreferrer"><img src="./diccionario_datos_files/dot.gif" title="Abrir nueva ventana de phpMyAdmin" alt="Abrir nueva ventana de phpMyAdmin" class="icon ic_window-new"></a></div><div class="clearfloat" id="pma_errors"></div><script data-cfasync="false" type="text/javascript">// <![CDATA[
+if (! (history && history.pushState)) PMA_MicroHistory.primer = { url: "db_datadict.php?db=sistemasdeinf&table=telefonos&server=1&target=", scripts: [{"name":"jquery\/jquery.min.js","fire":0},{"name":"jquery\/jquery-migrate-3.0.0.js","fire":0},{"name":"whitelist.php","fire":1},{"name":"sprintf.js","fire":1},{"name":"ajax.js","fire":0},{"name":"keyhandler.js","fire":1},{"name":"jquery\/jquery-ui.min.js","fire":0},{"name":"jquery\/jquery.cookie.js","fire":0},{"name":"jquery\/jquery.mousewheel.js","fire":0},{"name":"jquery\/jquery.event.drag-2.2.js","fire":0},{"name":"jquery\/jquery-ui-timepicker-addon.js","fire":0},{"name":"jquery\/jquery.ba-hashchange-1.3.js","fire":0},{"name":"jquery\/jquery.debounce-1.0.5.js","fire":0},{"name":"menu-resizer.js","fire":1},{"name":"cross_framing_protection.js","fire":0},{"name":"rte.js","fire":1},{"name":"tracekit\/tracekit.js","fire":1},{"name":"error_report.js","fire":1},{"name":"messages.php","fire":0},{"name":"get_image.js.php","fire":0},{"name":"config.js","fire":1},{"name":"doclinks.js","fire":1},{"name":"functions.js","fire":1},{"name":"navigation.js","fire":1},{"name":"indexes.js","fire":1},{"name":"common.js","fire":1},{"name":"page_settings.js","fire":1},{"name":"shortcuts_handler.js","fire":1},{"name":"codemirror\/lib\/codemirror.js","fire":0},{"name":"codemirror\/mode\/sql\/sql.js","fire":0},{"name":"codemirror\/addon\/runmode\/runmode.js","fire":0},{"name":"codemirror\/addon\/hint\/show-hint.js","fire":0},{"name":"codemirror\/addon\/hint\/sql-hint.js","fire":0},{"name":"codemirror\/addon\/lint\/lint.js","fire":0},{"name":"codemirror\/addon\/lint\/sql-lint.js","fire":0},{"name":"console.js","fire":1}], menuHash: "366a37e2"};
+var debugSQLInfo = 'null';
+AJAX.scriptHandler;
+$(function() {});
+// ]]></script></body></html>

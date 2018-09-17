@@ -1,6 +1,6 @@
 <?php
 /**
- * Controlador de Llamado
+ * Controlador de Llamado.
  */
 class Llamado extends CI_Controller
 {
@@ -9,156 +9,119 @@ class Llamado extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('MLlamado');
-		$this->load->model('MEstudiantes_inscritos');
+		$this->load->model('MOferta');
 		$this->load->helper('url');
 	}
 	/*
-	* Método index, para mostrar una pagina de inicio
+	* Método index, para mostrar formulario de ajustes generales
 	*
 	*/
 	public function index(){
+		$data['llamados'] = $this->MLlamado->get_llamados();	
 		$this->load->view('layouts/top');
-		$this->load->view('estudiantes/home');
+		$this->load->view('Llamado/index',$data);
 		$this->load->view('layouts/bottom');
 	}
 	/*
-	* Método para el mostrar el formulario de registro de estudiantes
+	* Método create, para mostrar formulario de registro de Llamado
 	*
 	*/
-	public function create(){
+	public function create($ofer_id){
+		$data['oferta'] = $this->MOferta->get_ofertas($ofer_id);
 		$this->load->view('layouts/top');
-		$this->load->view('estudiantes/create');
+		$this->load->view('Llamado/create',$data);
 		$this->load->view('layouts/bottom');
 	}
 	/*
-	* Método para el registro de estudiantes
+	* Método store, para guardar los datos de la Llamado
 	*
 	*/
-	public function store(){		
-
-		$est_fec_nam = $this->input->post("est_fec_nam");
-		$new_est_fec_nam = date("Y/m/d", strtotime($est_fec_nam));
-		$paramEstudiante = array(
-			'est_cedula' => $this->input->post("est_cedula"), 
-			'est_nombre' => $this->input->post("est_nombre"), 
-			'est_fec_nam' => $new_est_fec_nam,
-			'est_direccion' => $this->input->post("est_direccion"),
-			'est_email' => $this->input->post("est_email"),
-			'est_curriculum' => $this->input->post("est_curriculum"),
-			'est_carrera' => $this->input->post("est_carrera"),
-			'est_semestre' => $this->input->post("est_semestre")			
+	public function store()
+	{	
+		$paramLlamado = array(
+			'llam_status' => $this->input->post("llam_status"),
+			'ofer_id' => $this->input->post("ofer_id"),
+			'llam_fec_inic' => $this->input->post("llam_fec_inic"),
+			'llam_fec_lim' => $this->input->post("llam_fec_lim")		
 		);
-		
-
-		//valido si el estudiante ya ha sido registrado...
-		$query = $this->db->get_where('estudiantes', array('est_cedula' => $this->input->post("est_cedula")));
+		//valido si la Llamado ya ha sido registrado...
+		$query = $this->db->get_where('Llamado', array('ofer_id' => $this->input->post("ofer_id")));
 		if(empty($query->row()))
 		{
-			$idEstudiante = $this->MEstudiantes->guardar($paramEstudiante);
-			
-			foreach ($this->input->post("tel_numero") as $key => $numero) {
-				$paramTelefono = array(
-					'tel_numero' => $numero,
-					'tel_descripcion' => $this->input->post("tel_descripcion")[$key],
-					'est_id' => $idEstudiante
-				);
-				if(!$this->MTelefonos->guardar($paramTelefono))				
-				{
-					echo "Ha ocurrido un error al guardar el telefono.";
-					print_r($paramTelefono);	
-				}
-			}	
-			$data['estudiantes'] = $this->MEstudiantes->get_estudiantes();
-			$data['response'] = 'Se ha registrado el estudiante correctamente.';
-					
+			$this->MLlamado->guardar($paramLlamado);	
+			$data['llamados'] = $this->MLlamado->get_llamados();	
+			$data['response'] = 'El Llamado ha sido registrado satisfactoriamente';
 			$this->load->view('layouts/top');
-			$this->load->view('estudiantes/list', $data);
-			$this->load->view('layouts/bottom');	
-						
+	       	$this->load->view('Llamado/index',$data);
+	       	$this->load->view('layouts/bottom');	
 		}
 		else
-		{
-			$datos = array('errors' => 'El estudiante de cédula '.$this->input->post("est_cedula").' ya está registrado.');
+		{			
+			//si ya esta registrada error
+			$data['response'] = 'Ya hay un llamado registrado para esta misma oferta';
 			$this->load->view('layouts/top');
-			$this->load->view('estudiantes/create', $datos);
-			$this->load->view('layouts/bottom');
-		}	
-	}	
+	       	$this->load->view('llamado/index', $data);
+	       	$this->load->view('layouts/bottom');
+		}
+	}
 	/*
-	* Método para mostrar una lista con todos los usuarios
+	* Método edit, para mostrar formulario de edición de Llamado
 	*
-	*/
-	public function view()
-	{
-		$data['estudiantes'] = $this->MEstudiantes->get_estudiantes();	
+	*/	
+	public function edit($llam_id){
+		$item = $this->MLlamado->get_llamados($llam_id);
 		$this->load->view('layouts/top');
-		$this->load->view('estudiantes/list', $data);
+		$this->load->view('Llamado/edit',array('item'=>$item));
 		$this->load->view('layouts/bottom');
-
 	}
 	/*
-	* @Description: Método para mostrar el formulario de edición de usuarios
-	* @Params $id -> id del usuario a modificar
-	* @return Response
-	*/
-	public function edit($id)
-	{
-		if(!$this->session->userdata('user')) header('location: '.base_url());
-		
-		$item = $this->MUsuario->get_users($id);
-
-       	$this->load->view('layouts/top');
-       	$this->load->view('persona/edit',array('item'=>$item));
-       	$this->load->view('layouts/bottom');
-	}
-	/*
-	* Método para guardar la edición de los usuarios
+	* Método update, para actualizar los datos generales del sistema
 	*
 	*/
-	public function update($id)
-	{
-		if(!$this->session->userdata('user')) header('location: '.base_url());
-
-		$query = $this->db->get_where(
-			'usuario', array(
-				'nomUsuario' => $this->input->post('nomUsuario'), 
-				'clave' => sha1($this->input->post('viejaclave'))
-			)
-		);
+	public function update($llam_id)
+	{	
+		$query = $this->db->get_where('Llamado', array('llam_id' => $llam_id));
 		if($query->row_array())
 		{
-			$this->MUsuario->update($id);
-			$data['usuarios'] = $this->MUsuario->get_users();
-			$data['response'] = 'El usuario se ha actualizado correctamente.';
+			$this->MLlamado->update($llam_id);
+			$data['llamados'] = $this->MLlamado->get_llamados();
+			$data['response'] = 'El Llamado se ha actualizado correctamente.';
 			$this->load->view('layouts/top');
-	       	$this->load->view('persona/list', $data);
+	       	$this->load->view('Llamado/index', $data);
 	       	$this->load->view('layouts/bottom');
 		}
 		else
 		{
-			$data['item'] = $this->MUsuario->get_users($id);
-			$data['error'] = 'La contraseña anterior no coincide.';
+			$data['item'] = $this->MLlamado->get_llamados($llam_id);
+			$data['error'] = 'Error, esta Llamado no parece estar registrada.';
 			$this->load->view('layouts/top');
-	       	$this->load->view('persona/edit',$data);
+	       	$this->load->view('Llamado/edit',$data);
 	       	$this->load->view('layouts/bottom');
 		}
 	}
 	/*
-	* Metodo para eliminar un usuario
+	* Metodo para mostrar confirmación de eliminación de Llamado
 	*
 	*/
-	public function delete($id)
-	{
-		/*
-		se puede eliminar un usuario pero deberia poder seguir existiendo como persona bajo la base de datos
-		*/
-		if(!$this->session->userdata('user')) header('location: '.base_url());
-		$item = $this->MUsuario->delete($id);
-		$data['response'] = 'Usuario eliminado correctamente.';
-		$data['usuarios'] = $this->MUsuario->get_users();
+	public function confirm_delete($llam_id)
+	{		
+		$data['llamado'] = $this->MLlamado->get_llamados($llam_id);	
+		$this->load->view('layouts/top');
+		$this->load->view('Llamado/delete', $data);
+		$this->load->view('layouts/bottom');
+	}
+	/*
+	* Metodo para eliminación de Llamado
+	*
+	*/
+	public function delete($llam_id)
+	{		
+		$item = $this->MLlamado->delete($llam_id);
+		$data['response'] = 'Llamado eliminado correctamente.';
+		$data['llamados'] = $this->MLlamado->get_llamados();
 		
 		$this->load->view('layouts/top');
-		$this->load->view('persona/list', $data);
+		$this->load->view('Llamado/index', $data);
 		$this->load->view('layouts/bottom');
 	}
 }

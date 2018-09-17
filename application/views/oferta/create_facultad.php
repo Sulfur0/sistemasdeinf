@@ -23,7 +23,7 @@
 	        		<input type="text" class="form-control" placeholder="Ingresa Nombre de la facultad" name="ofer_destino" value="<?php echo $facultad["fac_nombre"] ;?>" readonly="">
 	    		</div>	    		
 	    	</div>	
-	    	<div class="row">
+			<div class="row">
 	    		<div class="col-md-12">
 	    			<label>Selecciona un Departamento</label>
 	        		<select name="ofer_destino_dep" id="ofer_destino_dep" class="form-control" required="">
@@ -40,7 +40,8 @@
 	        		<input type="text" class="form-control" placeholder="Breve descripción de la oferta" name="ofer_descripcion" value="" required="">
 	    		</div>	    		
 	    	</div>        
-	    </div>   
+	    </div>  
+	    <input type="hidden" name="ofer_figurar" value="1"> 
 
 	    <button type="submit" class="btn btn-success mt-sm-5 mt-3 px-4">Registrar</button>
 	</form>

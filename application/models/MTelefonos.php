@@ -18,10 +18,10 @@ class MTelefonos extends CI_Model
 	}
 
 	
-	public function get_telefonos($tel_id)
+	public function get_telefonos($est_id)
 	{
-		$query = $this->db->get_where('telefonos', array('telefonos.tel_id' => $tel_id));
-	    return $query->row_array();
+		$query = $this->db->get_where('telefonos', array('telefonos.est_id' => $est_id));
+	    return $query->result_array();
 	}
 	
 }

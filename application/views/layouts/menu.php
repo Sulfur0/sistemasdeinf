@@ -19,6 +19,18 @@
                             <a href="<?php echo base_url(); ?>index.php/Oferta/index">Lista de Ofertas</a>
                         </li>
                     </ul>
+                </li> 
+                <li>
+                    <a href="#llamadoSubmenu" data-toggle="collapse" aria-expanded="false">
+                        <i class="fas fa-users"></i>
+                        Llamados
+                        <i class="fas fa-angle-down fa-pull-right"></i>
+                    </a>
+                    <ul class="collapse list-unstyled" id="llamadoSubmenu">    
+                        <li>
+                            <a href="<?php echo base_url(); ?>index.php/Llamado/index">Lista de Llamados</a>
+                        </li>
+                    </ul>
                 </li>                
                 <li>
                     <a href="#usuariosSubmenu" data-toggle="collapse" aria-expanded="false">

@@ -17,7 +17,7 @@
 <!-- Tables content -->
 <section class="tables-section">
     <!-- table1 -->
-    <div class="outer-w3-agile mt-3">
+    <div class="outer-w3-agile mt-3"  style="overflow-x:auto;">
 
 		<table class="table">
 	        <thead class="thead-dark">
@@ -41,18 +41,9 @@
 	                    <td><?php echo $estudiante['est_fec_nam'] ?></td>
 						<td><?php echo $estudiante['est_direccion'] ?></td>
 	                    <td><?php echo $estudiante['est_email'] ?></td>
+	                    <td><?php echo $estudiante['carr_nombre'] ?></td>
 	                    <td>
-	                    	<?php foreach ($carreras as $carrera) 
-	                    	{
-	                    		if($estudiante['car_id'] == $carrera['carr_id']){
-	                    			echo $carrera['carr_nombre'];
-	                    		}
-	                    	}
-	                    	?>
-	                    	
-	                    </td>
-	                    <td>
-	                    	<a href="<?php echo base_url(); ?>index.php/Estudiantes/telefonos/<?php echo $estudiante['est_id'];?>" class="btn btn-sm btn-primary">Teléfonos</a>
+	                    	<a href="<?php echo base_url(); ?>index.php/Estudiantes/telefonos/<?php echo $estudiante['est_id'];?>" class="btn btn-sm btn-primary" >Teléfonos</a>
 	                    </td>
 	                    <td>
 	                    	<a href="<?php echo base_url(); ?>index.php/Estudiantes/curriculum/<?php echo $estudiante['est_id'];?>" class="btn btn-sm btn-primary">Curriculum</a>
